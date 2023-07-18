@@ -9,10 +9,6 @@ server.use(morgan("dev"));
 server.use(express.json());
 server.use(cors());
 
-server.get("/", (req, res) => {
-    res.status(200).send("Holis")
-})
-
 server.use(router);
 
 module.exports = server;

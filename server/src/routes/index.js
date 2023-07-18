@@ -1,9 +1,11 @@
 const { Router } = require("express");
+const { getCountryById, getAllCountries } = require('../controllers/countryHandlers.js')
 
 const router = Router();
 
-router.get("/", (req, res) => {
-    res.status(200).send("Holis")
-})
+router.get("/:id", getCountryById)
+router.get("/", getAllCountries)
+
+
 
 module.exports = router;
