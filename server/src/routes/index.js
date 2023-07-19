@@ -3,7 +3,7 @@ const { getCountryByCode, getAllCountries } = require('../controllers/countryHan
 
 const router = Router();
 
-router.get("/countries/:cioc", getCountryByCode)
+router.get("/countries/:cca3", getCountryByCode)
 router.get("/countries/", getAllCountries)
 
 
