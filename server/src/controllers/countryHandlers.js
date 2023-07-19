@@ -13,26 +13,28 @@ const getAllCountries = async (req, res) => {
     }
 }
 
-const getCountryById = async (req, res) => {
-    const { id: cioc } = req.params
+const getCountryByCode = async (req, res) => {
+    const { cioc } = req.params
     try {
         const response = await axios.get(`${URL}`)
-        const found = response.data.find(country => country.cioc === cioc)
+        const found = response.data.find(country => country.cioc === cioc.toUpperCase())
         const country = {
+            code: found.cioc,
             name: found.name.common,
-            capital: found.capital[0],
+            flag: found.flags.png,
             continent: found.continents[0],
-            languages: found.languages,
-            population: found.population,
-            flag: found.flags.png
+            capital: found.capital[0],
+            subregion: found.subregion,
+            area: found.area,
+            population: found.population
         }
     res.status(200).json(country)
     } catch (error) {
-        res.status(500).json({ error: 'No se encuentran países con ese ID' });  
+        res.status(500).json({ error: 'No se encuentraron países con ese ID' });  
     } 
 }
 
 module.exports = {
-    getCountryById,
+    getCountryByCode,
     getAllCountries
 }
