@@ -1,35 +1,32 @@
-const axios = require('axios')
 const { Country } = require('../db.js')
+const { Op } = require('sequelize');
 
 const URL = "http://localhost:5000/countries"
 
 const getAllCountries = async (req, res) => {
+    const { name } = req.query
+    console.log(name)
     try {
-        const countries = await Country.findAll()
-        res.status(200).json(countries)
+        if (name){
+            const countries = await Country.findAll({where: { name: { [Op.iLike]: `%${name}%`} }})
+            res.status(200).json(countries)
+        }
+        else{
+            const countries = await Country.findAll()
+            res.status(200).json(countries)
+        }
     } catch (error) {
         res.status(500).json({ error: 'No se pudo acceder a los países' });  
     }
 }
 
 const getCountryByCode = async (req, res) => {
-    const { cca3 } = req.params
+    const { code } = req.params
     try {
-        const response = await axios.get(`${URL}`)
-        const found = response.data.find(country => country.cca3 === cca3.toUpperCase())
-        const country = {
-            code: found.cca3,
-            name: found.name.common,
-            flag: found.flags.png,
-            continent: found.continents[0],
-            capital: found.capital[0],
-            subregion: found.subregion,
-            area: found.area,
-            population: found.population
-        }
-    res.status(200).json(country)
+        const found = await Country.findOne({where: { code: code.toUpperCase()} })
+        res.status(200).json(found)
     } catch (error) {
-        res.status(500).json({ error: 'No se encuentraron países con ese ID' });  
+        res.status(500).json({ error: 'No se encontraron países con ese CODE' });  
     } 
 }
 

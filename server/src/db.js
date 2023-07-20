@@ -39,7 +39,7 @@ const { Country, Activity, CountryActivity } = sequelize.models;
 
 
 
-Country.belongsToMany(Activity, {through: CountryActivity})
+Country.belongsToMany(Activity, {through: CountryActivity, foreignKey: 'idCountries'})
 Activity.belongsToMany(Country, {through: CountryActivity})
 
 module.exports = {
