@@ -1,0 +1,47 @@
+.texto{
+    font-size: 21px;
+    color: black;
+    margin-top: 30px;
+    margin-bottom: -20px;
+    text-transform: uppercase;
+}
+
+.textoChico{
+    font-size: 15px;
+    color: black;
+    margin-top: 28px;
+    margin-bottom: -12px;
+    text-transform: uppercase;
+}
+
+.textoChico2{
+    font-size: 18px;
+    color: black;
+    margin-top: 20px;
+    margin-bottom: -12px;
+}
+
+.texto2{
+    font-size: 20px;
+    color: black;
+    margin-top: 25px;
+    margin-bottom: 0px;
+}
+
+.bandera{
+    transform: scale(1.15);
+    position: absolute;
+    left: 23px;
+    top: 150px;
+    border: 2px solid black;
+    width: 150px;
+    height: 100px;
+}
+
+.container{
+    position: relative;
+    margin-top: -20px;
+    height: 280px;
+    width: 200px;
+}
+

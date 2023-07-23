@@ -18,6 +18,7 @@ const getCountries = async () => {
       population: country.population
     }
   })
+  countries.sort(((a, b) => a.name.localeCompare(b.name)))
   await Promise.all(countries.map(country => Country.create(country)));
 }
 

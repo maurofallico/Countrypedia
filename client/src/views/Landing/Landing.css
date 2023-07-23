@@ -1,0 +1,11 @@
+html {
+    overflow-y: scroll;
+}
+
+body{
+    background-image: url('../../../img/landing2.jpg');
+    background-size: cover;
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-position:center;
+}

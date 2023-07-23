@@ -14,20 +14,15 @@ export default function Landing(){
   }
 
   useEffect(() => {
-    // Aplicar los estilos de fondo al elemento body
     document.body.classList.add(styles.container);
-
-    // Limpieza: remover los estilos al desmontar el componente
-    return () => {
-      document.body.classList.remove(styles.container);
-    };
   }, []);
 
     return(
         <div className = {styled.container} >
-      <h1 className = {styled.title}>This is the Landing Page</h1>
+      <h1 className = {styled.title}>BIENVENIDO</h1>
       <div>
-        <button onClick={() => enter()}>
+        <p className = {styled.texto}>Por favor haga click para ingresar</p>
+        <button className = {styled.button} onClick={() => enter()}>
           INGRESAR
         </button>
       </div>

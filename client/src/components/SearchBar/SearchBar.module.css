@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+  }
+
+.input{
+    height: 28px;
+}
+
+.button{
+    border: 1px solid black;
+    transform: scale(1.4);
+    height: auto;
+    padding: 2px 5px;
+    margin-inline: 18px;
+}
