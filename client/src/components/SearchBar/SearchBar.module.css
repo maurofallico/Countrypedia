@@ -1,15 +1,23 @@
 .container {
     display: flex;
+    flex-wrap:nowrap;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
   }
 
 .input{
-    height: 28px;
+    font-size: 20px;
+    border: 1px solid black;
+    height: 32px;
+    width: 300px;
 }
 
 .button{
+    font-size: 20px;
     border: 1px solid black;
-    transform: scale(1.4);
-    height: auto;
+    height: 32px;
+    width: 80px;
     padding: 2px 5px;
     margin-inline: 18px;
 }

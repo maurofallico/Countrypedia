@@ -14,7 +14,7 @@ export default function SearchBar ({onSearch}) {
     }
     return (
         <div className = {styled.container}>
-        <input className = {styled.input} type='search' value={code} onChange={(e) => setCode(e.target.value)}  />
+        <input className = {styled.input} type='search' placeholder='Escriba el nombre de un país...' value={code} onChange={(e) => setCode(e.target.value)}  />
          <button className = {styled.button} onClick={handleSearch} >Buscar</button>
          </div>
     )
