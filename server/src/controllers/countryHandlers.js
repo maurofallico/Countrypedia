@@ -1,4 +1,4 @@
-const { Country } = require('../db.js')
+const { Country, Activity } = require('../db.js')
 const { Op } = require('sequelize');
 
 const URL = "http://localhost:5000/countries"
@@ -22,7 +22,15 @@ const getAllCountries = async (req, res) => {
 const getCountryByCode = async (req, res) => {
     const { code } = req.params //se guarda en la variable {code} lo que llegue por params
     try {
-        const found = await Country.findOne({where: { code: code.toUpperCase()} })
+        const found = await Country.findOne({
+            where: { code: code.toUpperCase() },
+            include: { 
+                model: Activity, //se incluyen los datos de la actividad de dicho país
+                attributes: ['name', 'difficulty', 'duration', 'season'],
+                through: { attributes: [] } // se excluyen los atributos de la tabla de unión (CountryActivity)
+            },
+            attributes: { exclude: ['CountryActivity'] } // se excluye el atributo "CountryActivity" del resultado
+        });
         res.status(200).json(found) //se intentará encontrar un país cuyo código coincida con la variable {code}
     } catch (error) {
         res.status(500).json({ error: 'No se encontraron países con ese código' });  

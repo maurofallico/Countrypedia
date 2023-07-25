@@ -15,7 +15,8 @@ const getCountries = async () => {
       capital: country.capital ? country.capital[0] : '-',
       subregion: country.subregion,
       area: country.area,
-      population: country.population
+      population: country.population,
+      activities: []
     }
   })
   countries.sort(((a, b) => a.name.localeCompare(b.name)))
