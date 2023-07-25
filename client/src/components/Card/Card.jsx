@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from './Card.module.css'
+import Detail from '../../views/Detail/Detail.jsx'
 
 export default function Card({country}) {
     return (
