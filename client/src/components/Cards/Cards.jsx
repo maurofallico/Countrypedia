@@ -1,6 +1,7 @@
 import Card from '../Card/Card.jsx'
 import PropTypes from 'prop-types';
 import styled from './Cards.module.css'
+import { Link } from "react-router-dom";
 
 export default function Cards ({countries}) {
     const countryList = countries
@@ -8,8 +9,10 @@ export default function Cards ({countries}) {
         <div className = {styled.container}>
             {countryList?.map((country) => (
               <div className = {styled.card} key={country.id}>
+                <Link to={`/${country.code}`} className={styled.detail}>
                 <Card country={country}/>  
-                </div> 
+                </Link>
+                </div>
             ))}
         </div>
     )

@@ -23,7 +23,7 @@ const getCountryByCode = async (req, res) => {
     const { code } = req.params //se guarda en la variable {code} lo que llegue por params
     try {
         const found = await Country.findOne({
-            where: { code: code.toUpperCase() },
+            where: { code: code.toLowerCase() },
             include: { 
                 model: Activity, //se incluyen los datos de la actividad de dicho país
                 attributes: ['name', 'difficulty', 'duration', 'season'],

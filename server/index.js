@@ -8,7 +8,7 @@ const getCountries = async () => {
   const data = response.data
   const countries = data.map(country => {
     return {
-      code: country.cca3,
+      code: country.cca3.toLowerCase(),
       name: country.name.common,
       flag: country.flags.png,
       continent: country.continents[0],

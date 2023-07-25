@@ -32,7 +32,7 @@
     transform: scale(1.15);
     position: absolute;
     left: 23px;
-    top: 165px;
+    top: 120px;
     border: 2px solid black;
     width: 150px;
     height: 100px;
@@ -40,8 +40,6 @@
 
 .container{
     position: relative;
-    margin-top: -20px;
-    height: 280px;
+    height: 285px;
     width: 200px;
 }
-
