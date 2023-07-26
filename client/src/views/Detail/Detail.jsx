@@ -1,9 +1,11 @@
 import styled from "./Detail.module.css"
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {useState, useEffect} from 'react'
 
 
 export default function Detail(){
+
+    const navigate = useNavigate()
 
     const [ country, setCountry ] = useState([]);
 
@@ -21,7 +23,12 @@ export default function Detail(){
           })
       }, []);
 
+      const back = () =>{
+        navigate('/home')
+      }
+
     return(
+        <div>
         <div className = {styled.container}>
             <p className = {styled.texto}>[{code}]</p>
             <p className = {styled.texto}><strong><u>Nombre</u>:</strong> {country.name}</p>
@@ -33,7 +40,10 @@ export default function Detail(){
             {country.subregion !== country.continent && ( <p className = {styled.texto}><strong><u>Región</u>:</strong> {country.subregion}</p>)}
             
             {country.population > 0 && ( <p className = {styled.texto}><strong><u>Población</u>:</strong> {country.population}</p>)}
-            <Link className={styled.volver} to = '/home'>VOLVER</Link>
+        </div>
+        <div className = {styled.buttonContainer}>
+        <button className={styled.volver} onClick={back}>VOLVER</button>
+        </div>
         </div>
     )
 }

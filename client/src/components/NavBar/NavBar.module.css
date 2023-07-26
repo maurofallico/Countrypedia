@@ -1,6 +1,9 @@
 .container{
     display: flex;
     justify-content: center;
-    background-color: rgb(102, 158, 223);
+    background-color: rgb(212, 232, 255);
     width: 100%;
+    border: 1.5px solid black;
+    border-left: none;
+    border-right: none;
 }
