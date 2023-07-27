@@ -19,8 +19,11 @@ const getCountries = async () => {
       activities: []
     }
   })
-  countries.sort(((a, b) => a.name.localeCompare(b.name)))
-  await Promise.all(countries.map(country => Country.create(country)));
+  await countries.sort((a, b) => a.name.localeCompare(b.name))
+
+  for (const country of countries) {
+    await Country.create(country);
+  }
 }
 
 

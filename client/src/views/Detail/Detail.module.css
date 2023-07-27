@@ -1,13 +1,16 @@
 .texto{
     font-size: 30px;
     color: rgb(0, 0, 0);
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     margin-top: 20px;
 }
 
 .bandera{
-    margin-top: 30px;
-    margin-bottom: 20px;
+    transform: scale(1.8);
+    width: 150px;
+    height: 100px;
+    margin-top: 70px;
+    margin-bottom: 45px;
     border: 2px solid black;
 }
 
@@ -38,10 +41,9 @@
     width:fit-content;
     height: fit-content;
     margin-top: 50px;
-    padding-left: 70px;
-    padding-right: 70px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-bottom: 15px;
     display: inline-block;
     justify-content: center;
     border-radius: 20px;

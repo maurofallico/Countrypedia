@@ -21,11 +21,11 @@
 }
 
 .card:hover{
+    margin: -2px;
     transform: scale(1.05);
     transform-origin: center;
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease-in-out;
     cursor: pointer;
     border: 5px solid rgb(142, 48, 205);
     border-radius: 14px;
-    margin: -2px;
 }

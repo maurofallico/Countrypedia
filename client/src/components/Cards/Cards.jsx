@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import styled from './Cards.module.css'
 import { Link } from "react-router-dom";
 
-export default function Cards ({countries}) {
-    const countryList = countries
+export default function Cards ({items}) {
+    const countryList = items
     return (
         <div className = {styled.container}>
             {countryList?.map((country) => (

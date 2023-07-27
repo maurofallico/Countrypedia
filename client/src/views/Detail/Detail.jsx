@@ -30,7 +30,7 @@ export default function Detail(){
     return(
         <div>
         <div className = {styled.container}>
-            <p className = {styled.texto}>[{code}]</p>
+            <p className = {styled.texto}><strong>[{code}]</strong></p>
             <p className = {styled.texto}><strong><u>Nombre</u>:</strong> {country.name}</p>
             <img className = {styled.bandera} src = {country.flag}></img>
             <p className = {styled.texto}><strong><u>Continente</u>:</strong> {country.continent}</p>
