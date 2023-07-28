@@ -69,6 +69,7 @@ export default function Home(){
     return(
         <div>
             <NavBar onSearch = {search}/>
+            <div className = {styled.container}>
             {totalPages > 1 ? (
             <p className = {styled.texto}>PAGINA: {currentPage}/{totalPages} </p>  
             ) : (
@@ -85,6 +86,7 @@ export default function Home(){
                 <button className = {styled.button}  disabled >&gt;</button>
             )}
             <Cards items = {items}/>
+            </div>
         </div>
     )
 }

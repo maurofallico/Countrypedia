@@ -15,7 +15,7 @@
 }
 
 .volver{
-    background-color: rgb(213, 244, 250);
+    background-color: rgb(134, 203, 228);
     border: 2px solid black;
     font-size: 30px;
     color: rgb(0, 0, 0);
@@ -37,7 +37,7 @@
 }
 
 .container{
-    background-color: rgb(213, 244, 250);
+    background-color: rgb(134, 203, 228);
     width:fit-content;
     height: fit-content;
     margin-top: 50px;
