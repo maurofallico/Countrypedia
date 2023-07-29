@@ -6,4 +6,18 @@
     border: 1.5px solid black;
     border-left: none;
     border-right: none;
+    align-items: center;
+}
+
+.filter{
+    height: 32px;
+    margin-right: 100px;
+    margin-left: 20px;
+}
+
+.label{
+    align-items: center;
+    height: 32px;
+    color: black;
+    display: flex;
 }

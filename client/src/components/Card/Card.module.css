@@ -39,6 +39,8 @@
 }
 
 .container{
+    display: flex;
+    flex-direction: column;
     position: relative;
     height: 285px;
     width: 200px;

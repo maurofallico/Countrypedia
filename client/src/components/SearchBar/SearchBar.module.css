@@ -12,12 +12,3 @@
     height: 32px;
     width: 300px;
 }
-
-.button{
-    font-size: 20px;
-    border: 1px solid black;
-    height: 32px;
-    width: 80px;
-    padding: 2px 5px;
-    margin-inline: 18px;
-}

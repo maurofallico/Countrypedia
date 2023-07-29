@@ -67,13 +67,13 @@ export default function Home(){
     }
 
     return(
-        <div>
+        <div className = {styled.parent}>
             <NavBar onSearch = {search}/>
             <div className = {styled.container}>
             {totalPages > 1 ? (
-            <p className = {styled.texto}>PAGINA: {currentPage}/{totalPages} </p>  
+            <p className = {styled.texto}><strong>PAGINA: {currentPage}/{totalPages}</strong></p>  
             ) : (
-                <p className = {styled.texto}>PAGINA: {currentPage} </p>
+                <p className = {styled.texto}><strong>PAGINA: {currentPage}</strong></p>
             )}
             {prevButton === true ? (
                 <button className = {styled.button}  onClick = {prevHandler} >&lt;</button>
