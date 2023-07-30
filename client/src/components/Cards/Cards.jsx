@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 export default function Cards ({items}) {
     const countryList = items
     return (
+      <div className = {styled.parent}>
         <div className = {styled.container}>
             {countryList?.map((country) => (
               <div className = {styled.card} key={country.id}>
@@ -14,6 +15,7 @@ export default function Cards ({items}) {
                 </Link>
                 </div>
             ))}
+        </div>
         </div>
     )
 }

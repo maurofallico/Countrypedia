@@ -32,7 +32,7 @@
     transform: scale(1.15);
     position: absolute;
     left: 23px;
-    top: 120px;
+    top: 145px;
     border: 2px solid black;
     width: 150px;
     height: 100px;
@@ -44,8 +44,6 @@
     position: relative;
     height: 285px;
     width: 200px;
-    margin-bottom: 0px;
-    margin-top: 0px;
 }
 
 

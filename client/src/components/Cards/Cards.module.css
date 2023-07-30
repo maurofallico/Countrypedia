@@ -1,7 +1,12 @@
+.parent {
+    display: flex;
+    justify-content: center;
+  }
+
 .container{
-    height: 580px;
     display: grid;
-    grid-template-columns: 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr;
+    width: min-content;
+    grid-template-columns: repeat(5, 0.1fr);
     justify-content: center;
     margin-top: 15px;
 }
@@ -12,20 +17,19 @@
     background-color: rgb(134, 203, 228);
     height: 285px;
     width: 210px;
-    transform: scale(0.8);
+    transform: scale(0.9);
+    transform-origin: center;
     border: 3px solid black;
-    margin-inline: 30px;
-    margin-bottom: 0px;
-    margin-top: 0px;
     border-radius: 10px;
+    margin-inline: 10px;
 }
 
 .card:hover{
-    margin-inline: 28px;
-    margin-bottom: -4px;
-    transform: scale(101%);
-    transform-origin: center;
+    margin-inline: 8px;
+    margin-bottom: -8px;
+    transform: scale(1.01);
     transition: transform 0.5s ease-in-out;
+    transform-origin: center;
     cursor: pointer;
     border: 5px solid rgb(142, 48, 205);
     border-radius: 14px;

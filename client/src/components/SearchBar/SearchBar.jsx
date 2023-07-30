@@ -6,7 +6,7 @@ import {useSelector} from 'react-redux'
 export default function SearchBar ({onSearch}) {
     const [code, setCode] = useState('')
     const countries = useSelector((state) => state.countries)
-    if (countries.length === 0) onSearch(code)
+    if (countries.length === 0 && code==='') onSearch(code)
 
     const handleChange = (e) => {
         const input = e.target.value;
