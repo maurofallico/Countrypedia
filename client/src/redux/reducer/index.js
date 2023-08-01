@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_BY_CODE } from '../actions/index.js'
+import { GET_COUNTRIES, GET_BY_CODE, GET_BY_CONTINENT } from '../actions/index.js'
 
 let initialState = {countries: []}
 
@@ -9,6 +9,11 @@ function rootReducer(state = initialState, action){
                 ...state, countries: action.payload
             }
         case GET_BY_CODE:
+            return{
+                ...state, countries: action.payload
+            }
+        case GET_BY_CONTINENT:
+            
             return{
                 ...state, countries: action.payload
             }

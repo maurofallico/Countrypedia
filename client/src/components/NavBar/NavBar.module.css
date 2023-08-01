@@ -1,6 +1,6 @@
 .container{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     background-color: rgb(82, 127, 179);
     width: 100%;
     border: 1.5px solid black;
@@ -10,14 +10,21 @@
 }
 
 .filter{
+    margin-left: 10px;
     height: 32px;
-    margin-right: 100px;
-    margin-left: 20px;
 }
 
 .label{
+    margin-left: 40px;
     align-items: center;
     height: 32px;
     color: black;
     display: flex;
+}
+
+.button{
+    transform: scale(1.2);
+    height: 32px;
+    border: 1px solid black;
+    margin-right: 115px;
 }

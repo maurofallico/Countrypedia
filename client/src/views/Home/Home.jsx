@@ -1,7 +1,7 @@
 import NavBar from "../../components/NavBar/NavBar.jsx";
 import Cards from "../../components/Cards/Cards.jsx";
 import {  useDispatch, useSelector } from 'react-redux'
-import { getCountryByCode } from '../../redux/actions/index.js' 
+import { getCountryByCode, getByContinent } from '../../redux/actions/index.js' 
 import styled from "./Home.module.css";
 import { useState, useEffect } from 'react'
 
@@ -66,9 +66,14 @@ export default function Home(){
         dispatch(getCountryByCode(countryCode))
     }
 
+    function continentSearch (continent){
+        dispatch(getByContinent(continent))
+    }
+
+
     return(
         <div className = {styled.parent}>
-            <NavBar onSearch = {search}/>
+            <NavBar onSearch = {search} continentSearch = {continentSearch}/>
             <div className = {styled.container}>
             {totalPages > 1 ? (
             <p className = {styled.texto}><strong>PAGINA: {currentPage}/{totalPages}</strong></p>  
