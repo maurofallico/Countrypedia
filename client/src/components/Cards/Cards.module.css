@@ -19,7 +19,7 @@
     width: 210px;
     transform: scale(0.9);
     transform-origin: center;
-    border: 3px solid black;
+    border: 3px solid rgb(27, 63, 104);
     border-radius: 10px;
     margin-inline: 10px;
 }

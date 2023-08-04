@@ -1,7 +1,3 @@
-.parent {
-  display: grid;
-  place-items: center;
-}
 
 .container{
     background-color: rgb(82, 127, 179);
@@ -12,23 +8,5 @@
     border-radius: 20px;
 }
 
-.texto{
-    color: rgb(0, 0, 0);
-    font-size: 30px;
-}
 
-.button{
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font-size: 25px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
 
-.buttonOff{
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font-size: 25px;
-    margin-left: 20px;
-    margin-right: 20px;
-}

@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import SearchBar from '../SearchBar/SearchBar.jsx';
 import styled from './NavBar.module.css'
-import {sortCountries} from '../../redux/actions/index.js'
 
 export default function NavBar ({searchCountry, orderCountry}) {
 

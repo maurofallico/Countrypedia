@@ -1,0 +1,30 @@
+.container{
+    display:grid;
+}
+
+.button{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.buttonOff{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.texto{
+    justify-self: center;
+    border: 3px solid rgb(27, 63, 104);
+    background-color: rgb(134, 203, 228);
+    border-radius: 10px;
+    width: fit-content;
+    color: rgb(0, 0, 0);
+    font-size: 28px;
+    padding: 4px;
+}
