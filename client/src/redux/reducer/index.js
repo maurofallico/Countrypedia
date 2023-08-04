@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_BY_CODE, GET_BY_CONTINENT } from '../actions/index.js'
+import { GET_COUNTRIES, SORT } from '../actions/index.js'
 
 let initialState = {countries: []}
 
@@ -8,14 +8,21 @@ function rootReducer(state = initialState, action){
             return{
                 ...state, countries: action.payload
             }
-        case GET_BY_CODE:
+        case SORT:
+            const order = state.countries.sort((a, b) => {
+                switch(action.payload){
+                    case 'nameUp':
+                        return a.name.localeCompare(b.name);
+                    case 'nameDown':
+                        return b.name.localeCompare(a.name);
+                    case 'menorPop':
+                        return a.population - b.population;
+                    case 'mayorPop':
+                        return b.population - a.population;
+                }
+            })
             return{
-                ...state, countries: action.payload
-            }
-        case GET_BY_CONTINENT:
-            
-            return{
-                ...state, countries: action.payload
+                ...state, countries: order
             }
         default:
             return state

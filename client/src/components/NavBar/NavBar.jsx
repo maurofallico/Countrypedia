@@ -1,27 +1,38 @@
 import PropTypes from 'prop-types';
 import SearchBar from '../SearchBar/SearchBar.jsx';
 import styled from './NavBar.module.css'
+import {sortCountries} from '../../redux/actions/index.js'
 
-export default function NavBar ({onSearch, continentSearch, activitySearch}) {
+export default function NavBar ({searchCountry, orderCountry}) {
+
+
+    const handleOrder = (e) =>{
+        orderCountry(e.target.value)
+    }
+
     return (
         <div className = {styled.container}>
             <label className = {styled.label}><strong>Ordenar:</strong>
-            <select className = {styled.filter} name='order'>
+            <select className = {styled.filter} name='order' onChange = {handleOrder}>
                 <option
-                value="nameUp">Nombre (A-Z)
+                value="nameUp"
+                >Nombre (A-Z)
                 </option>
                 <option
-                value="nameDown">Nombre (Z-A)
+                value="nameDown"
+                >Nombre (Z-A)
                 </option>
                 <option
-                value="menorPop">Menor Población
+                value="menorPop"
+                >Menor Población
                 </option>
                 <option
-                value="mayorPop">Mayor Población
+                value="mayorPop"
+                >Mayor Población
                 </option>
             </select>
             </label>
-        <SearchBar onSearch = {onSearch} continentSearch = {continentSearch} activitySearch = {activitySearch}/>
+        <SearchBar searchCountry = {searchCountry}/>
         <button className = {styled.button}>Agregar Actividad</button>
         </div>
     )

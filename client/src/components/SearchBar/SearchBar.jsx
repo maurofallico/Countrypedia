@@ -1,31 +1,26 @@
 import styled from './SearchBar.module.css'
 import PropTypes from 'prop-types';
-import { useState } from 'react'
-import {useSelector} from 'react-redux'
+import { useState, useEffect } from 'react'
 
-export default function SearchBar ({onSearch, continentSearch, activitySearch }) {
+export default function SearchBar ({ searchCountry }) {
+
+
     const [country, setCountry] = useState('')
     const [continent, setContinent] = useState('')
     const [activity, setActivity] = useState('')
-    const countries = useSelector((state) => state.countries)
-    if (countries.length === 0 && country==='' && continent==='') onSearch(country)
+
+    useEffect(() => {
+        searchCountry(country, continent);
+      }, [country, continent]);
 
     const countryChange = (e) => {
-        const input = e.target.value;
-        setCountry(input)
-        onSearch(input)
+        const inputCountry = e.target.value;
+        setCountry(inputCountry)
     }
 
     const continentChange = (e) => {
-        const input = e.target.value;
-        setContinent(input)
-        continentSearch(input)
-    }
-
-    const activityChange = (e) => {
-        const input = e.target.value;
-        setActivity(input)
-        activitySearch(input)
+        const inputContinent = e.target.value;
+        setContinent(inputContinent)
     }
            
     return (
@@ -52,7 +47,6 @@ export default function SearchBar ({onSearch, continentSearch, activitySearch })
         type='search' 
         placeholder='Ingrese una actividad...' 
         value={activity}
-        onChange={activityChange}
         />
         </div>
     )

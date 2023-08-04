@@ -24,7 +24,7 @@ Cards.propTypes = {
     countries: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
+        items: PropTypes.string.isRequired,
       })
     ).isRequired,
   };

@@ -1,7 +1,7 @@
 import NavBar from "../../components/NavBar/NavBar.jsx";
 import Cards from "../../components/Cards/Cards.jsx";
 import {  useDispatch, useSelector } from 'react-redux'
-import { getCountryByCode, getByContinent } from '../../redux/actions/index.js' 
+import { getCountries, sortCountries } from '../../redux/actions/index.js' 
 import styled from "./Home.module.css";
 import { useState, useEffect } from 'react'
 
@@ -9,6 +9,7 @@ export default function Home(){
     const dispatch = useDispatch()
     const countries = useSelector((state) => state.countries)
     const [items, setItems] = useState([...countries].splice(0,10))
+    const [currentOrder, setCurrentOrder] = useState('')
 
     let prevButton = false
     let nextButton = false
@@ -32,16 +33,6 @@ export default function Home(){
         prevButton = true
     }
 
-
-
-    useEffect(() => {
-        setItems([...countries].splice((currentPage-1) * 10, 10));
-      }, [countries, currentPage]);
-
-      useEffect(() => {
-        setCurrentPage(1)
-      }, [countries]);
-
       let totalPages = Math.ceil(countries.length / 10);
 
      const nextHandler = () =>{
@@ -60,20 +51,32 @@ export default function Home(){
         setCurrentPage(currentPage-1)
     }  
 
-   
+    useEffect(() => {
+        setItems([...countries].splice((currentPage-1) * 10, 10));
+      }, [countries, currentPage, currentOrder]);
 
-    function search (countryCode){
-        dispatch(getCountryByCode(countryCode))
+    useEffect(() => {
+        setCurrentPage(1)
+      }, [countries]);
+
+    function orderCountry(order){
+        setCurrentOrder(order)
+        dispatch(sortCountries(order))
     }
 
-    function continentSearch (continent){
-        dispatch(getByContinent(continent))
+   function searchCountry (name, continent){
+        dispatch(getCountries(name, continent))
     }
 
+    
 
+    
+
+    
+    
     return(
         <div className = {styled.parent}>
-            <NavBar onSearch = {search} continentSearch = {continentSearch}/>
+            <NavBar searchCountry = {searchCountry} orderCountry = {orderCountry}/>
             <div className = {styled.container}>
             {totalPages > 1 ? (
             <p className = {styled.texto}><strong>PAGINA: {currentPage}/{totalPages}</strong></p>  

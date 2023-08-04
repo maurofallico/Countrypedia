@@ -6,12 +6,8 @@ const URL = "http://localhost:5000/countries"
 const getAllCountries = async (req, res) => {
     const { name, continent } = req.query //se guarda en la variable {name y continent} lo que llegue por query (si no llega nada, será 'undefined')
     try {
-        if (continent){ //se evalúa si la variable {continent} tiene algo, o si es 'undefined'
-            const countries = await Country.findAll({where: { continent: { [Op.iLike]: `${continent}%`} }})
-            res.status(200).json(countries) // si tiene algo, entonces va a traer los países que coincidan con el query
-        }
-        else if (name){
-            const countries = await Country.findAll({where: { name: { [Op.iLike]: `${name}%`} }})
+        if (name || continent){ //se evalúa si la variable {continent} tiene algo, o si es 'undefined'
+            const countries = await Country.findAll({where: { name: { [Op.iLike]: `${name}%` }, continent: { [Op.iLike]: `${continent}%`} }})
             res.status(200).json(countries) // si tiene algo, entonces va a traer los países que coincidan con el query
         }
         else{
