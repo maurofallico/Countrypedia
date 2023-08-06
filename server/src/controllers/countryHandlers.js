@@ -4,10 +4,10 @@ const { Op } = require('sequelize');
 const URL = "http://localhost:5000/countries"
 
 const getAllCountries = async (req, res) => {
-    const { name, continent } = req.query //se guarda en la variable {name y continent} lo que llegue por query (si no llega nada, será 'undefined')
+    const { name } = req.query //se guarda en la variable {name} lo que llegue por query (si no llega nada, será 'undefined')
     try {
-        if (name || continent){ //se evalúa si la variable {continent} tiene algo, o si es 'undefined'
-            const countries = await Country.findAll({where: { name: { [Op.iLike]: `${name}%` }, continent: { [Op.iLike]: `${continent}%`} }})
+        if (name){ //se evalúa si la variable {continent} tiene algo, o si es 'undefined'
+            const countries = await Country.findAll({where: { name: { [Op.iLike]: `${name}%` } }})
             res.status(200).json(countries) // si tiene algo, entonces va a traer los países que coincidan con el query
         }
         else{

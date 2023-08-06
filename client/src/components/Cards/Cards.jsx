@@ -21,10 +21,10 @@ export default function Cards ({items}) {
 }
 
 Cards.propTypes = {
-    countries: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        items: PropTypes.string.isRequired,
-      })
-    ).isRequired,
-  };
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      items: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};

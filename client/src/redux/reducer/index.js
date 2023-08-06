@@ -1,32 +1,69 @@
-import { GET_COUNTRIES, SORT } from '../actions/index.js'
+import {
+  GET_COUNTRIES,
+  SORT,
+  FILTER_ADD,
+  FILTER_REMOVE,
+  FILTER,
+} from "../actions/index.js";
 
-let initialState = {countries: []}
+let initialState = { countries: [] };
 
-function rootReducer(state = initialState, action){
-    switch(action.type){
-        case GET_COUNTRIES:
-            return{
-                ...state, countries: action.payload
-            }
-        case SORT:
-            const order = state.countries.sort((a, b) => {
-                switch(action.payload){
-                    case 'nameUp':
-                        return a.name.localeCompare(b.name);
-                    case 'nameDown':
-                        return b.name.localeCompare(a.name);
-                    case 'menorPop':
-                        return a.population - b.population;
-                    case 'mayorPop':
-                        return b.population - a.population;
-                }
-            })
-            return{
-                ...state, countries: order
-            }
-        default:
-            return state
+function rootReducer(state = initialState, action) {
+  switch (action.type) {
+    case GET_COUNTRIES:
+      return {
+        ...state,
+        countries: action.payload,
+      };
+    case SORT:
+      const order = state.countries.sort((a, b) => {
+        switch (action.payload) {
+          case "nameUp":
+            return a.name.localeCompare(b.name);
+          case "nameDown":
+            return b.name.localeCompare(a.name);
+          case "menorPop":
+            return a.population - b.population;
+          case "mayorPop":
+            return b.population - a.population;
+        }
+      });
+      return {
+        ...state,
+        countries: order,
+      };
+
+    case FILTER_ADD:
+      const addedCountries = state.countries.filter(
+        (country) => !action.payload.includes(country.continent)
+      );
+      return {
+        ...state,
+        countries: addedCountries,
+      };
+
+    case FILTER_REMOVE:
+      const removedCountries = state.countries.filter((country) =>
+        action.payload.includes(country.continent)
+      );
+      return {
+        ...state,
+        countries: removedCountries,
+      };
+
+    case FILTER:
+        const filtered = state.countries.filter((country) => 
+        action.payload.includes(country.continent)
+        )
+        console.log(filtered)
+    return {
+        ...state,
+        countries: filtered,
     }
+
+    default:
+      return state;
+  }
 }
 
-export default rootReducer
+export default rootReducer;

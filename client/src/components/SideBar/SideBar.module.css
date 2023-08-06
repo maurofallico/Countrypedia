@@ -1,0 +1,35 @@
+.container{
+    background-color: rgb(82, 127, 179);
+    width: 12em;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+.filters{
+    transform: scale(1.4);
+    margin-top: 15em;
+    display:flex;
+    flex-direction: column;
+    text-align: right;
+    color: black;
+}
+
+.label{
+    margin-bottom: 1.5em;
+}
+
+.title{
+    margin-bottom: 2em;
+    text-align: center;
+    color: black;
+}
+
+.button{
+    height: 2em;
+    width: 7em;
+    align-self: center;
+    border: 1px solid black;
+    margin-bottom: 1em;
+}

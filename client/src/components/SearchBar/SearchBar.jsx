@@ -33,14 +33,7 @@ export default function SearchBar ({ searchCountry }) {
         value={country} 
         onChange={countryChange}
         />
-        <label className = {styled.label}><strong>Continente:</strong></label>
-        <input 
-        className = {styled.input} 
-        type='search' 
-        placeholder='Ingrese un continente...' 
-        value={continent}
-        onChange={continentChange}
-        />
+        
         <label className = {styled.label}><strong>Actividad:</strong></label>
         <input 
         className = {styled.input} 

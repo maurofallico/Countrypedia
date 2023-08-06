@@ -1,30 +1,45 @@
+
+
 .container{
-    display: flex;
+    display:flex;
+    position: absolute;
     justify-content: space-around;
     background-color: rgb(82, 127, 179);
     width: 100%;
-    border: 1.5px solid black;
-    border-left: none;
-    border-right: none;
+    height: 4em;
     align-items: center;
 }
 
-.filter{
-    margin-left: 10px;
-    height: 32px;
+.select{
+    margin-left: 1em;
+    height: 2em;
+    width: 8em;
 }
 
-.label{
-    margin-left: 40px;
-    align-items: center;
-    height: 32px;
+
+.input{
+    margin-left: 1em;
+    height: 2em;
+    width: 12em;
+    margin-right: 3em;
+}
+
+.labelPais{
+    height: 2em;
     color: black;
-    display: flex;
 }
+
+.labelOrdenar{
+    margin-left: 22em;
+    height: 2em;
+    color: black;
+}
+
 
 .button{
+    margin-right: 15.25em;
     transform: scale(1.2);
-    height: 32px;
+    height: 2em;
     border: 1px solid black;
-    margin-right: 115px;
+    padding-inline: 0.8em;
 }

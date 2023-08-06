@@ -31,18 +31,18 @@ export default function Detail(){
         <div>
         <div className = {styled.container}>
             <p className = {styled.texto}><strong>[{code}]</strong></p>
-            <p className = {styled.texto}><strong><u>Nombre</u>:</strong> {country.name}</p>
+            <p className = {styled.texto}><strong><u>Name</u>:</strong> {country.name}</p>
             <img className = {styled.bandera} src = {country.flag}></img>
-            <p className = {styled.texto}><strong><u>Continente</u>:</strong> {country.continent}</p>
+            <p className = {styled.texto}><strong><u>Continent</u>:</strong> {country.continent}</p>
 
             {country.capital !== '-' && ( <p className = {styled.texto}><strong><u>Capital</u>:</strong> {country.capital}</p>)}
 
-            {country.subregion !== country.continent && ( <p className = {styled.texto}><strong><u>Región</u>:</strong> {country.subregion}</p>)}
+            {country.subregion !== country.continent && ( <p className = {styled.texto}><strong><u>Region</u>:</strong> {country.subregion}</p>)}
             
-            {country.population > 0 && ( <p className = {styled.texto}><strong><u>Población</u>:</strong> {country.population}</p>)}
+            {country.population > 0 && ( <p className = {styled.texto}><strong><u>Population</u>:</strong> {country.population.toLocaleString()}</p>)}
         </div>
         <div className = {styled.buttonContainer}>
-        <button className={styled.volver} onClick={back}>VOLVER</button>
+        <button className={styled.volver} onClick={back}>BACK</button>
         </div>
         </div>
     )
