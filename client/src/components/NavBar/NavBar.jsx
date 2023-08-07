@@ -1,8 +1,16 @@
 import PropTypes from "prop-types";
 import styled from "./NavBar.module.css";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function NavBar({ searchCountry, orderCountry }) {
+
+  const navigate = useNavigate()
+
+  function toForm () {
+    navigate('/form')
+  }
+
   const handleOrder = (e) => {
     orderCountry(e.target.value);
   };
@@ -43,7 +51,7 @@ export default function NavBar({ searchCountry, orderCountry }) {
       />
       </label>
 
-      <button className = {styled.button}>Add Activity</button>
+      <button className = {styled.button} onClick = {toForm }>Add Activity</button>
 
       
     </div>

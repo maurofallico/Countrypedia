@@ -1,0 +1,30 @@
+.container{
+    display: inline-block;
+    justify-content: center;
+}
+
+.form{
+    
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 80px;
+    background-color: rgb(82, 127, 179);
+    width: 600px;
+    height: 700px;
+}
+
+.labels{
+    
+}
+
+.texto{
+    margin-top: 15px;
+    font-size: 30px;
+    color: black;
+}
+
+.button{
+    margin-top: 25px;
+    width: 150px;
+}
