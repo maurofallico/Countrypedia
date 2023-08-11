@@ -1,6 +1,7 @@
 import styled from "./Detail.module.css"
 import { useNavigate } from "react-router-dom";
 import {useState, useEffect} from 'react'
+import { useSelector } from 'react-redux'
 
 
 export default function Detail(){
@@ -12,6 +13,7 @@ export default function Detail(){
     const code = window.location.href.substr(-3).toUpperCase()
 
     useEffect(() => {
+      
         fetch(`http://localhost:3001/countries/${code}`)
           .then(response => {
             if (response.ok) {
@@ -40,6 +42,8 @@ export default function Detail(){
             {country.subregion !== country.continent && ( <p className = {styled.texto}><strong><u>Region</u>:</strong> {country.subregion}</p>)}
             
             {country.population > 0 && ( <p className = {styled.texto}><strong><u>Population</u>:</strong> {country.population.toLocaleString()}</p>)}
+
+            <p className = {styled.texto}><strong><u>Activities</u>: </strong></p>
         </div>
         <div className = {styled.buttonContainer}>
         <button className={styled.volver} onClick={back}>BACK</button>
@@ -47,11 +51,3 @@ export default function Detail(){
         </div>
     )
 }
-/* ID (Código de tres letras).
-Nombre.
-Imagen de la bandera.
-Continente.
-Capital.
-Subregión (si tiene).
-Área (si tiene).
-Población. */

@@ -4,6 +4,7 @@ import Landing from "./views/Landing/Landing.jsx";
 import Home from "./views/Home/Home.jsx";
 import Detail from './views/Detail/Detail.jsx'
 import Form from './views/Form/Form.jsx';
+import Activities from './views/Activities/Activities.jsx'
 
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
         <Route path="/:code" element ={<Detail />} />
 
         <Route path="/form" element ={<Form />} />
+
+        <Route path="/activities" element ={<Activities />} />
 
       </Routes>
     </div>

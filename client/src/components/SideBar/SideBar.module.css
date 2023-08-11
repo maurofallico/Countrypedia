@@ -5,6 +5,7 @@
     position: absolute;
     display: flex;
     justify-content: center;
+    border-right: 2px solid black;
 }
 
 .filters{

@@ -4,7 +4,7 @@ import {
   FILTER_ADD,
   FILTER_REMOVE,
   FILTER,
-  POST_ACTIVITY
+  POST_ACTIVITY,
 } from "../actions/index.js";
 
 let initialState = { countries: [], activities: [] };
@@ -14,7 +14,7 @@ function rootReducer(state = initialState, action) {
     case POST_ACTIVITY:
       return {
         ...state,
-        activities: action.payload
+        activities: [...state.activities, action.payload]
       }
 
     case GET_COUNTRIES:

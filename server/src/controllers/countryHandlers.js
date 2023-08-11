@@ -1,8 +1,6 @@
 const { Country, Activity } = require('../db.js')
 const { Op } = require('sequelize');
 
-const URL = "http://localhost:5000/countries"
-
 const getAllCountries = async (req, res) => {
     const { name } = req.query //se guarda en la variable {name} lo que llegue por query (si no llega nada, será 'undefined')
     try {
