@@ -27,6 +27,5 @@ Card.propTypes = {
         name: PropTypes.string.isRequired,
         continent: PropTypes.string.isRequired,
         flag: PropTypes.string.isRequired,
-      // Agrega otras propiedades aquí si son necesarias
     }).isRequired,
   };

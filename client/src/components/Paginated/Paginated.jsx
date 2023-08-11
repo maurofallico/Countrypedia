@@ -12,6 +12,7 @@ export default function Paginated ({searchCountry}){
     const dispatch = useDispatch()
 
     const countries = useSelector((state) => state.countries)
+    const activities = useSelector((state) => state.activities)
     
     const [currentPage, setCurrentPage] = useState(1)
 
@@ -69,6 +70,7 @@ export default function Paginated ({searchCountry}){
 
     
     useEffect(() => {
+        console.log(activities)
         const filtered = continents.length > 0 ? countries.filter(country => continents.includes(country.continent)) : countries;
         setFilteredCountries(filtered)
         setTotalPages(Math.ceil(filtered.length / 10))

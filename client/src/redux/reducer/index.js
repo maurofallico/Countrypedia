@@ -4,12 +4,19 @@ import {
   FILTER_ADD,
   FILTER_REMOVE,
   FILTER,
+  POST_ACTIVITY
 } from "../actions/index.js";
 
-let initialState = { countries: [] };
+let initialState = { countries: [], activities: [] };
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
+    case POST_ACTIVITY:
+      return {
+        ...state,
+        activities: action.payload
+      }
+
     case GET_COUNTRIES:
       return {
         ...state,
