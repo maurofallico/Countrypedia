@@ -1,8 +1,23 @@
+.container{
+    background-color: rgb(241, 251, 255);
+    width:fit-content;
+    min-width: 360px;
+    max-width: 450px;
+    height: fit-content;
+    margin-top: 75px;
+    padding-bottom: 15px;
+    display: inline-block;
+    justify-content: center;
+    border-radius: 20px;
+    border: 3px solid black;
+}
+
 .texto{
-    font-size: 30px;
+    font-size: 25px;
     color: rgb(0, 0, 0);
     margin-bottom: 5px;
     margin-top: 10px;
+    margin-inline: 15px;
 }
 
 .bandera{
@@ -15,8 +30,9 @@
 }
 
 .volver{
-    background-color: rgb(134, 203, 228);
+    background-color: rgb(241, 251, 255);
     border: 2px solid black;
+    border-radius: 10px;
     font-size: 30px;
     color: rgb(0, 0, 0);
     padding: 8px;
@@ -26,26 +42,13 @@
     transform: scale(1.08);
     transform-origin: center;
     transition: transform 0.5s ease;
-    border: 5px solid rgb(142, 48, 205);
-    border-radius: 8px;
+    border: 5px solid rgb(54, 57, 213);
+    border-radius: 10px;
 }
 
 .buttonContainer{
-    margin-top: 40px;
+    margin-top: 25px;
     display: flex;
     justify-content: center;
 }
 
-.container{
-    background-color: rgb(134, 203, 228);
-    width:fit-content;
-    height: fit-content;
-    margin-top: 75px;
-    padding-left: 55px;
-    padding-right: 55px;
-    padding-bottom: 15px;
-    display: inline-block;
-    justify-content: center;
-    border-radius: 20px;
-    border: 4px solid black;
-}

@@ -59,13 +59,11 @@ function rootReducer(state = initialState, action) {
       };
 
     case FILTER:
-        const filtered = state.countries.filter((country) => 
-        action.payload.includes(country.continent)
-        )
-        console.log(filtered)
+        
+    ;
     return {
         ...state,
-        countries: filtered,
+        countries: state,
     }
 
     default:

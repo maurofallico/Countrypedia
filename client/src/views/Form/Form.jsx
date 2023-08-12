@@ -80,7 +80,7 @@ export default function Form() {
     <div className={styled.container}>
       <form className={styled.form}>
         <p className={styled.texto}><strong>Create Activity</strong></p>
-
+        <div className ={styled.elements}>
         <div className = {styled.name}>
         <label className={styled.labelName}><strong>Name: </strong></label>
         <input
@@ -90,8 +90,9 @@ export default function Form() {
          ></input>
         </div>
 
-        <label className={styled.labelDifficulty}><strong>Difficulty</strong></label>
+        
         <div className={styled.difficulty}>
+        <label className={styled.labelDifficulty}><strong>Difficulty:</strong></label>
         <div>
             <input
               type="radio"
@@ -152,23 +153,58 @@ export default function Form() {
         <label className={styled.labelDuration}><strong>Duration: </strong></label>
         <input maxLength = "3" className={styled.inputDuration}
         onChange={(e) => setDuration(e.target.value)}value = {duration}></input>
-        <p className = {styled.subText}><strong>(minutes)</strong></p>
+        <p className = {styled.subText}>(minutes)</p>
         </div>
-        <div className = {styled.season}>
-        <label className={styled.labelSeason}><strong>Season: </strong></label>
-        <select className = {styled.inputSeason} value={season} onChange={(e) => setSeason(e.target.value)}>
-            <option disabled value = ""
-            >-- pick a season --</option>
-            <option value="Summer"
-            >Summer</option>
-            <option value="Autumn"
-            >Autumn</option>
-            <option value="Winter"
-            >Winter</option>
-            <option value="Spring"
-            >Spring</option>
-        </select>
-        </div>
+        <label className={styled.labelSeasons}><strong>Season: </strong></label>
+        <div className = {styled.inputContainer}>
+            <input
+              type="radio"
+              checked={season === 'Summer'}
+              value = "Summer"
+              onChange={(e) => setSeason(e.target.value)}
+              className = {styled.inputSeason}
+            ></input>
+            <label className={styled.labelSeason}>
+              Summer
+            </label>
+            </div>
+            <div className = {styled.inputContainer}>
+                      <input
+              type="radio"
+              checked={season === 'Autumn'}
+              value = "Autumn"
+              onChange={(e) => setSeason(e.target.value)}
+              className = {styled.inputSeason}
+            ></input>
+            <label className={styled.labelSeason}>
+              Autumn
+            </label>
+            </div>
+            <div className = {styled.inputContainer}>
+            <input
+              type="radio"
+              checked={season === 'Winter'}
+              value = "Winter"
+              onChange={(e) => setSeason(e.target.value)}
+              className = {styled.inputSeason}
+            ></input>
+            <label className={styled.labelSeason}>
+              Winter
+            </label>
+            </div>
+            <div className = {styled.inputContainer}>
+            <input
+              type="radio"
+              checked={season === 'Spring'}
+              value = "Spring"
+              onChange={(e) => setSeason(e.target.value)}
+              className = {styled.inputSeason}
+            ></input>
+            
+            <label className={styled.labelSeason}>
+              Spring
+            </label>
+            </div>
         <div className = {styled.countries}>
         <label className={styled.labelCountries}><strong>Countries: </strong></label>
 
@@ -191,15 +227,17 @@ export default function Form() {
         <div className = {styled.listContainer}>
         <p className = {styled.countryList}>{country.join(', ')}</p>
         </div>
+        </div>
         <div className = {styled.buttons}>
         <button type = "button" className={styled.button} onClick={createActivity}>
-          <strong>CREATE</strong>
+          Create
         </button>
         
         <button className={styled.button} onClick={toHome}>
-          <strong>BACK</strong>
+          Back
         </button>
         </div>
+        
       </form>
     </div>
   );

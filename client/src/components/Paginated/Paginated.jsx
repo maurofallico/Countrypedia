@@ -22,6 +22,10 @@ export default function Paginated ({searchCountry}){
 
     const [continents, setContinents] = useState([])
 
+    const [activityName, setActivityName] = useState()
+
+    const [activity, setActivity] = useState()
+
     const [items, setItems] = useState([...filteredCountries])
 
     const [totalPages, setTotalPages] = useState(1)
@@ -70,26 +74,33 @@ export default function Paginated ({searchCountry}){
 
     
     useEffect(() => {
-        const filtered = continents.length > 0 ? countries.filter(country => continents.includes(country.continent)) : countries;
-        setFilteredCountries(filtered)
-        setTotalPages(Math.ceil(filtered.length / 10))
-        setItems([...filtered].splice((currentPage-1) * 10, 10));
+
+        const selectedActivity = activities.find(act => act.name === activityName);
+        
+        const filteredByContinent = continents.length > 0 ? countries.filter(country => continents.includes(country.continent) ) : countries;
+        const filteredByActivity = selectedActivity ? filteredByContinent.filter(filtered => selectedActivity.idCountries.includes(filtered.id)) : filteredByContinent;
+        setFilteredCountries(filteredByActivity)
+        setTotalPages(Math.ceil(filteredByActivity.length / 10))
+        setItems([...filteredByActivity].splice((currentPage-1) * 10, 10));
          if (currentPage > totalPages) setCurrentPage(1)
-       }, [filteredCountries, continents, countries, currentPage, currentOrder]);
+         console.log(activity)
+       }, [activityName, continents, countries, currentPage, currentOrder]);
 
        
 
+              
+
       return (
         <div>
-            <SideBar setFilter = {setContinents}/>
+            <SideBar filterContinents = {setContinents} filterActivity = {setActivityName}/>
             <NavBar orderCountry = {orderCountry} searchCountry = {searchCountry}/>
             
         <div className = {styled.container}>
         
             {totalPages > 1 ? (
-                <p className = {styled.texto}><strong>PAGE: {currentPage}/{totalPages}</strong></p>  
+                <p className = {styled.texto}>PAGE: {currentPage}/{totalPages}</p>  
             ) : (
-                <p className = {styled.texto}><strong>PAGE: {currentPage}</strong></p>
+                <p className = {styled.texto}>PAGE: {currentPage}</p>
             )}
             </div>
             <div className= {styled.botones}>

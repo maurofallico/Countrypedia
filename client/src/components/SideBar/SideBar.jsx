@@ -1,20 +1,19 @@
 import styled from "./SideBar.module.css";
 import { useSelector } from 'react-redux'
 import {useState, useEffect} from 'react';
-import {  useDispatch } from 'react-redux'
-import { filterCountries, addCountries, removeCountries } from '../../redux/actions/index.js'
 
-export default function SideBar({ setFilter }) {
+export default function SideBar({ filterContinents, filterActivity }) {
+
+  const activities = useSelector((state) => state.activities)
  
     const [continents, setContinents] = useState([]);
-
-    const [select, setSelect] = useState()
-
-    const dispatch = useDispatch()
+    const [selectedActivity, setSelectedActivity] = useState("")
 
     useEffect(() => {
-        setFilter(continents);
-      }, [continents, setFilter])
+      filterContinents(continents);
+      filterActivity(selectedActivity);
+      }, [continents, filterContinents, selectedActivity, filterActivity])
+
 
       function selectContinents (e){
         if (continents.includes(e.target.value)){
@@ -26,19 +25,33 @@ export default function SideBar({ setFilter }) {
         }
       }
 
+      function selectActivity(e) {
+        if (e) setSelectedActivity(e.target.value);
+      }
+
       function clearFilters() {
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach((checkbox) => {
           checkbox.checked = false;
         });
         setContinents([]);
+        setSelectedActivity('')
+        filterActivity('')
       }
 
   return (
     <div className={styled.container}>
       <div className={styled.filters}>
-        <h2 className={styled.title}>FILTERS</h2>
-
+        <h2 className={styled.title}>Filters</h2>
+        <select value = {selectedActivity} onChange={selectActivity} className={styled.activities}>
+        <option className = {styled.filterAct} value="" disabled>-- filter by activity --</option>
+        {activities?.map((act) => (
+            <option
+            value = {act.name}>
+                {act.name}
+            </option>
+        ))}
+        </select>
         <label className={styled.label}>
           North America
           <input

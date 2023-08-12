@@ -35,24 +35,3 @@ export function sortCountries(value){
     })
 }
 
-export function addCountries(continents){
-    return ({
-        type: FILTER_ADD,
-        payload: continents
-    })
-}
-
-export function removeCountries(continents){
-    return ({
-        type: FILTER_REMOVE,
-        payload: continents
-    })
-}
-
-export function filterCountries(continents){
-    return ({
-        type: FILTER,
-        payload: continents
-    })
-}
-

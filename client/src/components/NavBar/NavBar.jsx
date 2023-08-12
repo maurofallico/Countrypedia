@@ -55,9 +55,9 @@ export default function NavBar({ searchCountry, orderCountry }) {
       />
       </label>
 
-      <button className = {styled.button} onClick = {toActivities}>Activity List</button>
+      <button className = {styled.buttonList} onClick = {toActivities}>Activity List</button>
 
-      <button className = {styled.button} onClick = {toForm}>Add Activity</button>
+      <button className = {styled.buttonAdd} onClick = {toForm}>Add Activity</button>
 
       
     </div>

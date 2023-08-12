@@ -4,7 +4,7 @@
     display:flex;
     position: absolute;
     justify-content: space-around;
-    background-color: rgb(82, 127, 179);
+    background-color: rgb(188, 217, 251);
     width: 100%;
     height: 4em;
     align-items: center;
@@ -35,8 +35,16 @@
     color: black;
 }
 
+.buttonList{
+    margin-right: 4em;
+    transform: scale(1.2);
+    height: 2em;
+    border: 1px solid black;
+    padding-inline: 0.8em;
+}
 
-.button{
+
+.buttonAdd{
     margin-right: 15.25em;
     transform: scale(1.2);
     height: 2em;

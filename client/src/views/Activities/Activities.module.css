@@ -7,13 +7,13 @@
     justify-content: center;
     width: 100%;
     height: 4em;
-    background-color: rgb(82, 127, 179);
+    background-color: rgb(188, 217, 251);
     align-items: center;
 }
 
 .sideBar{
     display: flex;
-    background-color: rgb(82, 127, 179);
+    background-color: rgb(188, 217, 251);
     width: 12em;
     height: 100%;
     position: absolute;
@@ -30,6 +30,9 @@
 }
 
 .cards{
+    display: flex;
+    flex-direction: column;
+    margin-inline: 800px;
     margin-top: 20px;
     
 }
@@ -37,6 +40,6 @@
 .card{
     border: 2px solid black;
     margin-bottom: 20px;
-    background-color: rgb(82, 127, 179);
-    margin-inline: 800px;
+    background-color: rgb(241, 251, 255);
+    border-radius: 20px;
 }

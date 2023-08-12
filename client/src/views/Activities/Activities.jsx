@@ -40,7 +40,7 @@ export default function Activities() {
             <p className = {styled.text}>
                 <strong><u>{act.name}</u></strong><br></br>
                 <u>Difficulty</u>: {act.difficulty}<br></br>
-                <u>Duration</u>: {act.duration}<br></br>
+                <u>Duration</u>: {act.duration} minutes<br></br>
                 <u>Season</u>: {act.season}<br></br>
                 <u>Countries</u>: {countryList[index]?.map(c => c.name).join(', ')}
             </p>
