@@ -17,14 +17,15 @@
 }
 
 .error{
-    margin-left: 62px;
+    justify-content: center;
     color: red;
-    margin-top: -20px;
+    margin-top: -18px;
     display: flex;
 }
 
 .elements{
     margin-left: 40px;
+    margin-right: 40px;
 }
 
 .name{
@@ -133,10 +134,13 @@
 }
 
 .listContainer{
+    justify-content: center;
+    margin-bottom: 15px;
     display: flex;
     min-height: 25px;
     height: fit-content;
     align-items: center;
+    
 }
 
 .countryList{
@@ -161,8 +165,8 @@
 
 .buttons{
     display: flex;
-    margin-top: 18px;
-    margin-bottom: 30px;
+    margin-top: 0;
+    margin-bottom: 40px;
     justify-content: center;
 }
 

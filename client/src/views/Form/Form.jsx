@@ -18,7 +18,7 @@ export default function Form() {
       ...prevErrors,
       name: !form.name ? "empty name" : /[^a-zA-Z]/.test(form.name) ? "invalid name" : "",
       difficulty: !form.difficulty ? "no difficulty" : "",
-      duration: !form.duration ? "no duration" : "",
+      duration: !form.duration ? "no duration" : /[^0-9]/.test(form.duration) ? "invalid duration" : "",
       season: !form.season ? "no season" : "",
       idCountries: form.idCountries.length === 0 ? "no countries" : ""
     }));
@@ -117,8 +117,6 @@ export default function Form() {
          ></input>
          
         </div>
-        {errors.name === "empty name" && (form.difficulty || form.duration || form.season) && (<p className = {styled.error}>empty name</p>)}
-        {errors.name === "invalid name" && (<p className = {styled.error}>invalid name</p>)}
         <div className={styled.difficulty}>
         <label className={styled.labelDifficulty}><strong>Difficulty:</strong></label>
         <div>
@@ -269,12 +267,17 @@ export default function Form() {
         <button type = "button" className={styled.button} onClick={createActivity}>
           Create
         </button>
-        
         <button className={styled.button} onClick={toHome}>
           Back
         </button>
         </div>
-        
+        {errors.name === "empty name" && (<p className = {styled.error}>- Name can not be null -</p>)}
+        {errors.name === "invalid name" && (<p className = {styled.error}>- Invalid name -</p>)}
+        {errors.difficulty && (<p className = {styled.error}>- Difficulty can not be null -</p>)}
+        {errors.duration === "no duration" && (<p className = {styled.error}>- Duration can not be null -</p>)}
+        {errors.duration === "invalid duration" && (<p className = {styled.error}>- Invalid duration -</p>)}
+        {errors.season && (<p className = {styled.error}>- Season can not be null -</p>)}
+        {errors.idCountries && (<p className = {styled.error}>- Add at least one country -</p>)}
       </form>
     </div>
   );
