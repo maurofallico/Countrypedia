@@ -62,7 +62,7 @@ export default function Detail(){
             <p className = {styled.texto}><strong><u>Activities</u>:</strong> {activityList} </p>
         </div>
         <div className = {styled.buttonContainer}>
-        <button className={styled.volver} onClick={back}>BACK</button>
+        <button className={styled.volver} onClick={back}>Back</button>
         </div>
         </div>
     )

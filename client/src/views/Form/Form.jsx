@@ -9,46 +9,74 @@ export default function Form() {
 
   const dispatch = useDispatch()
 
-    
-
   const countries = useSelector((state) => state.countries)
 
   const navigate = useNavigate();
 
-  const [activityName, setActivityName] = useState('')
-  const [difficulty, setDifficulty] = useState('')
-  const [duration, setDuration] = useState('')
-  const [season, setSeason] = useState('')
+  function validate(form) {
+    setErrors(prevErrors => ({
+      ...prevErrors,
+      name: !form.name ? "empty name" : /[^a-zA-Z]/.test(form.name) ? "invalid name" : "",
+      difficulty: !form.difficulty ? "no difficulty" : "",
+      duration: !form.duration ? "no duration" : "",
+      season: !form.season ? "no season" : "",
+      idCountries: form.idCountries.length === 0 ? "no countries" : ""
+    }));
+  }
+
+  const [form, setForm] = useState({
+    name: "",
+    difficulty: "",
+    duration: "",
+    season: "",
+    idCountries: []
+  })
+
+  const [errors, setErrors] = useState({
+    name: "",
+    difficulty: "",
+    duration: "",
+    season: "",
+    idCountries: "",
+  })
+
   const [country, setCountry] = useState([])
   const [selectedCountry, setSelectedCountry] = useState('')
   const [buttonDisabled, setButtonDisabled] = useState(true)
-  const [idList, setIdList] = useState([])
+
+  function handleChange (e){
+    const property = e.target.name;
+    const value = e.target.value;
+    setForm({...form, [property]: value})
+    validate(form)
+  }
 
   function toHome() {
     navigate("/home");
   }
 
   const createActivity = () => {
+    
     const ids = []
     country?.map((c) => (
       ids.push(c)
     ))
-    const activityData = {
-        name: activityName,
-        difficulty: difficulty,
-        duration: duration,
-        season: season,
-        idCountries: idList
-    };
-    dispatch(postActivity(activityData));
-    setActivityName('')
-    setDifficulty('')
-    setDuration('')
-    setSeason('')
+    if (!errors.name && !errors.difficulty && !errors.duration && !errors.season && !errors.idCountries){
+      dispatch(postActivity(form));
+    setForm({
+    name: "",
+    difficulty: "",
+    duration: "",
+    season: "",
+    idCountries: []
+    })
     setCountry([])
-    setSelectedCountry('')
+    }
+    else{
+      alert("Some fields are empty")
+      
+    }
 };
-
 
   function addCountry(){
     if (country.includes(selectedCountry)){
@@ -59,7 +87,7 @@ export default function Form() {
       const updatedId = countries.filter((c) => updatedCountry.includes(c.name)).map((c) => c.id);
 
       setCountry(updatedCountry);
-      setIdList(updatedId);
+      setForm({...form, idCountries: updatedId})
     }
     setSelectedCountry('')
   }
@@ -71,10 +99,8 @@ export default function Form() {
     else{
       setButtonDisabled(false)
     }
-  }, [selectedCountry])
-
-
-
+    validate(form)
+  }, [selectedCountry, form])
 
   return (
     <div className={styled.container}>
@@ -85,20 +111,23 @@ export default function Form() {
         <label className={styled.labelName}><strong>Name: </strong></label>
         <input
          className={styled.inputName}
-         value={activityName}
-         onChange={(e) => setActivityName(e.target.value)}
+         name="name"
+         value={form.name}
+         onChange={handleChange}
          ></input>
+         
         </div>
-
-        
+        {errors.name === "empty name" && (form.difficulty || form.duration || form.season) && (<p className = {styled.error}>empty name</p>)}
+        {errors.name === "invalid name" && (<p className = {styled.error}>invalid name</p>)}
         <div className={styled.difficulty}>
         <label className={styled.labelDifficulty}><strong>Difficulty:</strong></label>
         <div>
             <input
               type="radio"
-              checked={difficulty === '1'}
-              value = "1"
-              onChange={(e) => setDifficulty(e.target.value)}
+              name="difficulty"
+              value="1"
+              checked={form.difficulty === "1"}
+              onChange={handleChange}
             ></input>
             <label className={styled.labelRadio}>
               1
@@ -107,9 +136,10 @@ export default function Form() {
           <div>
             <input
               type="radio"
-              checked={difficulty === '2'}
-              value = "2"
-              onChange={(e) => setDifficulty(e.target.value)}
+              name="difficulty"
+              value="2"
+              onChange={handleChange}
+              checked={form.difficulty === "2"}
             ></input>
             <label className={styled.labelRadio}>
               2
@@ -118,9 +148,10 @@ export default function Form() {
           <div>
             <input
               type="radio"
-              checked={difficulty === '3'}
-              value = "3"
-              onChange={(e) => setDifficulty(e.target.value)}
+              name="difficulty"
+              value="3"
+              onChange={handleChange}
+              checked={form.difficulty === "3"}
             ></input>
             <label className={styled.labelRadio}>
               3
@@ -129,9 +160,10 @@ export default function Form() {
           <div>
             <input
               type="radio"
-              checked={difficulty === '4'}
-              value = "4"
-              onChange={(e) => setDifficulty(e.target.value)}
+              name="difficulty"
+              value="4"
+              onChange={handleChange}
+              checked={form.difficulty === "4"}
             ></input>
             <label className={styled.labelRadio}>
               4
@@ -140,9 +172,10 @@ export default function Form() {
           <div>
             <input
               type="radio"
-              checked={difficulty === '5'}
-              value = "5"
-              onChange={(e) => setDifficulty(e.target.value)}
+              name="difficulty"
+              value="5"
+              onChange={handleChange}
+              checked={form.difficulty === "5"}
             ></input>
             <label className={styled.labelRadio}>
               5
@@ -151,17 +184,18 @@ export default function Form() {
         </div>
         <div className = {styled.duration}>
         <label className={styled.labelDuration}><strong>Duration: </strong></label>
-        <input maxLength = "3" className={styled.inputDuration}
-        onChange={(e) => setDuration(e.target.value)}value = {duration}></input>
+        <input name="duration" maxLength = "3" className={styled.inputDuration}
+        onChange={handleChange}value = {form.duration}></input>
         <p className = {styled.subText}>(minutes)</p>
         </div>
         <label className={styled.labelSeasons}><strong>Season: </strong></label>
         <div className = {styled.inputContainer}>
             <input
               type="radio"
-              checked={season === 'Summer'}
-              value = "Summer"
-              onChange={(e) => setSeason(e.target.value)}
+              name="season"
+              checked={form.season === "Summer"}
+              value="Summer"
+              onChange={handleChange}
               className = {styled.inputSeason}
             ></input>
             <label className={styled.labelSeason}>
@@ -171,9 +205,10 @@ export default function Form() {
             <div className = {styled.inputContainer}>
                       <input
               type="radio"
-              checked={season === 'Autumn'}
-              value = "Autumn"
-              onChange={(e) => setSeason(e.target.value)}
+              name="season"
+              checked={form.season === "Autumn"}
+              value="Autumn"
+              onChange={handleChange}
               className = {styled.inputSeason}
             ></input>
             <label className={styled.labelSeason}>
@@ -183,9 +218,10 @@ export default function Form() {
             <div className = {styled.inputContainer}>
             <input
               type="radio"
-              checked={season === 'Winter'}
-              value = "Winter"
-              onChange={(e) => setSeason(e.target.value)}
+              name="season"
+              checked={form.season === "Winter"}
+              value="Winter"
+              onChange={handleChange}
               className = {styled.inputSeason}
             ></input>
             <label className={styled.labelSeason}>
@@ -195,9 +231,10 @@ export default function Form() {
             <div className = {styled.inputContainer}>
             <input
               type="radio"
-              checked={season === 'Spring'}
-              value = "Spring"
-              onChange={(e) => setSeason(e.target.value)}
+              name="season"
+              checked={form.season === "Spring"}
+              value="Spring"
+              onChange={handleChange}
               className = {styled.inputSeason}
             ></input>
             

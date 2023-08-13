@@ -29,8 +29,8 @@
 }
 
 .card:hover{
-    margin-inline: 8px;
-    margin-bottom: -8px;
+    margin-inline: 7px;
+    margin-bottom: -7px;
     transform: scale(1.01);
     transition: transform 0.5s ease-in-out;
     transform-origin: center;

@@ -1,5 +1,5 @@
 .container{
-    background-color: rgb(241, 251, 255);
+    background-color: rgb(188, 217, 251);
     width:fit-content;
     min-width: 360px;
     max-width: 450px;
@@ -26,11 +26,12 @@
     height: 100px;
     margin-top: 70px;
     margin-bottom: 45px;
-    border: 2px solid black;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 .volver{
-    background-color: rgb(241, 251, 255);
+    background-color: rgb(188, 217, 251);
     border: 2px solid black;
     border-radius: 10px;
     font-size: 30px;

@@ -16,6 +16,13 @@
     height: fit-content;
 }
 
+.error{
+    margin-left: 62px;
+    color: red;
+    margin-top: -20px;
+    display: flex;
+}
+
 .elements{
     margin-left: 40px;
 }
