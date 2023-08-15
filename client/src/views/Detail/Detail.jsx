@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 
 export default function Detail(){
 
+
     const activities = useSelector((state) => state.activities)
 
     const [activityList, setActivityList] = useState([])

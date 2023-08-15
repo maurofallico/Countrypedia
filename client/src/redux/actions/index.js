@@ -8,6 +8,7 @@ export const FILTER = "FILTER"
 export const POST_ACTIVITY = "POST_ACTIVITY"
 
 
+
 export function getCountries(name){
     return async function(dispatch){
             const response = await axios.get('http://localhost:3001/countries?name=' + name );

@@ -19,11 +19,11 @@ export default function Landing(){
 
     return(
         <div className = {styled.container} >
-      <h1 className = {styled.title}>BIENVENIDO</h1>
+      <h1 className = {styled.title}>Welcome to Countrypedia</h1>
       <div>
-        <p className = {styled.texto}>Por favor haga click para ingresar</p>
+        <p className = {styled.texto}><i>"Adventure awaits, go find it"</i></p>
         <button className = {styled.button} onClick={() => enter()}>
-          INGRESAR
+          Click to Enter
         </button>
       </div>
     </div>

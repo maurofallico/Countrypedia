@@ -1,5 +1,5 @@
 .container{
-
+    justify-content: center;
 }
 
 .navBar{
@@ -21,6 +21,7 @@
 }
 
 .button{
+    justify-content: center;
     transform: scale(1.5);
     border: 1px solid black;
 }

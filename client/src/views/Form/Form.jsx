@@ -13,17 +13,6 @@ export default function Form() {
 
   const navigate = useNavigate();
 
-  function validate(form) {
-    setErrors(prevErrors => ({
-      ...prevErrors,
-      name: !form.name ? "empty name" : /[^a-zA-Z]/.test(form.name) ? "invalid name" : "",
-      difficulty: !form.difficulty ? "no difficulty" : "",
-      duration: !form.duration ? "no duration" : /[^0-9]/.test(form.duration) ? "invalid duration" : "",
-      season: !form.season ? "no season" : "",
-      idCountries: form.idCountries.length === 0 ? "no countries" : ""
-    }));
-  }
-
   const [form, setForm] = useState({
     name: "",
     difficulty: "",
@@ -40,9 +29,20 @@ export default function Form() {
     idCountries: "",
   })
 
+  function validate(form) {
+    setErrors(prevErrors => ({
+      ...prevErrors,
+      name: !form.name ? "empty name" : /[^a-zA-Z]/.test(form.name) ? "invalid name" : "",
+      difficulty: !form.difficulty ? "no difficulty" : "",
+      duration: !form.duration ? "no duration" : /[^0-9]/.test(form.duration) ? "invalid duration" : "",
+      season: !form.season ? "no season" : "",
+      idCountries: form.idCountries.length === 0 ? "no countries" : ""
+    }));  
+  }
+
   const [country, setCountry] = useState([])
   const [selectedCountry, setSelectedCountry] = useState('')
-  const [buttonDisabled, setButtonDisabled] = useState(true)
+  const [addDisabled, setAddDisabled] = useState(true)
 
   function handleChange (e){
     const property = e.target.name;
@@ -61,8 +61,7 @@ export default function Form() {
     country?.map((c) => (
       ids.push(c)
     ))
-    if (!errors.name && !errors.difficulty && !errors.duration && !errors.season && !errors.idCountries){
-      dispatch(postActivity(form));
+    dispatch(postActivity(form));
     setForm({
     name: "",
     difficulty: "",
@@ -71,16 +70,11 @@ export default function Form() {
     idCountries: []
     })
     setCountry([])
-    }
-    else{
-      alert("Some fields are empty")
-      
-    }
 };
 
   function addCountry(){
     if (country.includes(selectedCountry)){
-      alert("Ese país ya se encuentra añadido")
+      alert("Country already added")
     }
     else{
       const updatedCountry = [...country, selectedCountry];
@@ -92,12 +86,13 @@ export default function Form() {
     setSelectedCountry('')
   }
 
+
   useEffect(() => {
     if (!selectedCountry){
-      setButtonDisabled(true)
+      setAddDisabled(true)
     }
     else{
-      setButtonDisabled(false)
+      setAddDisabled(false)
     }
     validate(form)
   }, [selectedCountry, form])
@@ -254,7 +249,7 @@ export default function Form() {
         ))}
         
         </select>
-        <button type = "button" className = {styled.button2} onClick={addCountry} disabled = {buttonDisabled}>
+        <button type = "button" className = {styled.button2} onClick={addCountry} disabled = {addDisabled}>
             +
         </button>
         
@@ -264,7 +259,8 @@ export default function Form() {
         </div>
         </div>
         <div className = {styled.buttons}>
-        <button type = "button" className={styled.button} onClick={createActivity}>
+        <button type = "button" className={styled.button} onClick={createActivity}
+         disabled={!!Object.values(errors).find(error => error !== "")}>
           Create
         </button>
         <button className={styled.button} onClick={toHome}>
