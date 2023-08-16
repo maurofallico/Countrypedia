@@ -6,9 +6,6 @@ import Detail from './views/Detail/Detail.jsx'
 import Form from './views/Form/Form.jsx';
 import Activities from './views/Activities/Activities.jsx'
 
-const BASE_URL = process.env.BASE_URL;
-
-
 function App() {
  
   return (

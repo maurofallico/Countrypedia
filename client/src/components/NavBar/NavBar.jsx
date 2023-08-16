@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 export default function NavBar({ searchCountry, orderCountry }) {
 
+  const [country, setCountry] = useState("");
+
   const navigate = useNavigate()
 
   function toForm () {
@@ -19,17 +21,14 @@ export default function NavBar({ searchCountry, orderCountry }) {
     orderCountry(e.target.value);
   };
 
-  const [country, setCountry] = useState("");
-  const [activity, setActivity] = useState("");
-
-  useEffect(() => {
-    searchCountry(country);
-  }, [country]);
-
   const countryChange = (e) => {
     const inputCountry = e.target.value;
     setCountry(inputCountry);
   };
+
+  useEffect(() => {
+    searchCountry(country);
+  }, [country]);
 
 
   return (

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import styled from './Card.module.css'
-import Detail from '../../views/Detail/Detail.jsx'
 
 export default function Card({country}) {
     return (
@@ -16,7 +15,7 @@ export default function Card({country}) {
                     <p className = {styled.texto2}>({country.continent})</p>
                 </div>
             )}
-            <img className = {styled.bandera} src = {country.flag}></img>
+            <img className = {styled.bandera} src = {country.flag} alt=''></img>
         </div>
     )
 }

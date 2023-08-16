@@ -3,7 +3,6 @@ import {
   SORT,
   FILTER_ADD,
   FILTER_REMOVE,
-  FILTER,
   POST_ACTIVITY,
 } from "../actions/index.js";
 
@@ -33,6 +32,8 @@ function rootReducer(state = initialState, action) {
             return a.population - b.population;
           case "mayorPop":
             return b.population - a.population;
+          default:
+            return a.name.localeCompare(b.name);
         }
       });
       return {
@@ -57,15 +58,6 @@ function rootReducer(state = initialState, action) {
         ...state,
         countries: removedCountries,
       };
-
-    case FILTER:
-        
-    ;
-    return {
-        ...state,
-        countries: state,
-    }
-
     default:
       return state;
   }

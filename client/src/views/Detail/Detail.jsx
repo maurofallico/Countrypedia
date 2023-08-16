@@ -27,11 +27,11 @@ export default function Detail(){
           })
           .then(data => {
             setCountry(data);
-            {activities?.map((act) => {
+            activities?.map((act) => {
               if (act.idCountries.includes(data.id)) {
                 actList.push(act.name)
               }
-          })}
+          })
           if (actList.length > 0) {
             setActivityList(actList.join(', '))
           }
@@ -39,7 +39,7 @@ export default function Detail(){
             setActivityList(' <no activities registered>')
           }
           })
-      }, []);
+      }, );
 
 
       const back = () =>{
@@ -51,7 +51,7 @@ export default function Detail(){
         <div className = {styled.container}>
             <p className = {styled.texto}><strong>[{code}]</strong></p>
             <p className = {styled.texto}><strong><u>Name</u>:</strong> {country.name}</p>
-            <img className = {styled.bandera} src = {country.flag}></img>
+            <img className = {styled.bandera} src = {country.flag} alt=''></img>
             <p className = {styled.texto}><strong><u>Continent</u>:</strong> {country.continent}</p>
 
             {country.capital !== '-' && ( <p className = {styled.texto}><strong><u>Capital</u>:</strong> {country.capital}</p>)}
