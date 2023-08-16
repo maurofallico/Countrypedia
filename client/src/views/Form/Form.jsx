@@ -13,6 +13,10 @@ export default function Form() {
 
   const navigate = useNavigate();
 
+  const [country, setCountry] = useState([])
+  const [selectedCountry, setSelectedCountry] = useState('')
+  const [addDisabled, setAddDisabled] = useState(true)
+
   const [form, setForm] = useState({
     name: "",
     difficulty: "",
@@ -40,10 +44,6 @@ export default function Form() {
     }));  
   }
 
-  const [country, setCountry] = useState([])
-  const [selectedCountry, setSelectedCountry] = useState('')
-  const [addDisabled, setAddDisabled] = useState(true)
-
   function handleChange (e){
     const property = e.target.name;
     const value = e.target.value;
@@ -56,12 +56,8 @@ export default function Form() {
   }
 
   const createActivity = () => {
-    
-    const ids = []
-    country?.map((c) => (
-      ids.push(c)
-    ))
     dispatch(postActivity(form));
+    alert("Activity Created!")
     setForm({
     name: "",
     difficulty: "",

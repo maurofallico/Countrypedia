@@ -12,7 +12,7 @@ export default function SideBar({ filterContinents, filterActivity }) {
     useEffect(() => {
       filterContinents(continents);
       filterActivity(selectedActivity);
-      }, [continents, filterContinents, selectedActivity, filterActivity])
+      }, [continents, selectedActivity])
 
 
       function selectContinents (e){

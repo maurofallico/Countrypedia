@@ -1,8 +1,6 @@
 import {
   GET_COUNTRIES,
   SORT,
-  FILTER_ADD,
-  FILTER_REMOVE,
   POST_ACTIVITY,
 } from "../actions/index.js";
 
@@ -39,24 +37,6 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         countries: order,
-      };
-
-    case FILTER_ADD:
-      const addedCountries = state.countries.filter(
-        (country) => !action.payload.includes(country.continent)
-      );
-      return {
-        ...state,
-        countries: addedCountries,
-      };
-
-    case FILTER_REMOVE:
-      const removedCountries = state.countries.filter((country) =>
-        action.payload.includes(country.continent)
-      );
-      return {
-        ...state,
-        countries: removedCountries,
       };
     default:
       return state;

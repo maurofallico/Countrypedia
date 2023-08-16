@@ -53,7 +53,6 @@ export default function Paginated({ searchCountry }) {
     setItems([...filteredCountries].splice(firstIndex, 10));
     // setea el valor de {items} con una copia de {filteredCountries} que corta desde el primer índice hasta 10 elementos
     // {items} serán los países que se verán en pantalla y se irá modificando en base a cual sea el valor de {firstIndex}
-    // cada vez que se haga click en Next, {firstIndex} cambiará su valor, por ende también lo hará {items}
     setCurrentPage(currentPage + 1);
     // por último, se incrementa el valor de la página actual
   };
@@ -86,8 +85,11 @@ export default function Paginated({ searchCountry }) {
     setFilteredCountries(filteredByActivity); // se actualiza el valor de filteredCountries (para el paginado)
     setTotalPages(Math.ceil(filteredByActivity.length / 10)); // se actualiza el valor de totalPages en relación al filtrado de activity
     setItems([...filteredByActivity].splice((currentPage - 1) * 10, 10)); // se actualiza items (paises mostrados) según la página actual
-    if (currentPage > totalPages) setCurrentPage(1); // si la página actual resulta mayor al nuevo total de páginas, se volverá a la primer página
-  }, [filteredCountries, activityName, continents, countries, currentPage, currentOrder]);
+  }, [activityName, continents, countries, currentPage, currentOrder]);
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [totalPages]);
 
   return (
     <div>

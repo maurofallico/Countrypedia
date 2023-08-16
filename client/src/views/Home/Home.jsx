@@ -10,7 +10,6 @@ export default function Home(){
    function searchCountry (name){
         dispatch(getCountries(name))
     }
- 
     
     return(
         <div>
