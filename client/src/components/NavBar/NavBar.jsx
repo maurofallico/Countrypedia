@@ -2,9 +2,10 @@ import PropTypes from "prop-types";
 import styled from "./NavBar.module.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux'
 
 export default function NavBar({ searchCountry, orderCountry }) {
-
+  const activities = useSelector((state) => state.activities)
   const [country, setCountry] = useState("");
 
   const navigate = useNavigate()
@@ -54,7 +55,7 @@ export default function NavBar({ searchCountry, orderCountry }) {
       />
       </label>
 
-      <button className = {styled.buttonList} onClick = {toActivities}>Activity List</button>
+      <button disabled={activities.length === 0} className = {styled.buttonList} onClick = {toActivities}>Activity List</button>
 
       <button className = {styled.buttonAdd} onClick = {toForm}>Add Activity</button>
 

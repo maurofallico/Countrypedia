@@ -64,6 +64,10 @@ export default function Paginated({ searchCountry }) {
     setCurrentPage(currentPage - 1);
   };
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page)
+  }
+
   useEffect(() => {
     const selectedActivity = activities.find( 
       (act) => act.name === activityName
@@ -127,6 +131,17 @@ export default function Paginated({ searchCountry }) {
             &gt;
           </button>
         )}
+{        <div className={styled.pageButtons}>
+  {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
+    <button
+      key={page}
+      className={currentPage === page ? styled.pageButtonSelected : styled.pageButton}
+      onClick={() => handlePageChange(page)}
+    >
+      {page}
+    </button>
+  ))}
+</div>}
       </div>
       <Cards items={items} />
     </div>

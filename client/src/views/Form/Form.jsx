@@ -36,7 +36,7 @@ export default function Form() {
   function validate(form) {
     setErrors(prevErrors => ({
       ...prevErrors,
-      name: !form.name ? "empty name" : /[^a-zA-Z]/.test(form.name) ? "invalid name" : "",
+      name: !form.name ? "empty name" : /[^a-zA-Z]/.test(form.name) ? "invalid name" : form.name.length > 20 ? "too long" : "",
       difficulty: !form.difficulty ? "no difficulty" : "",
       duration: !form.duration ? "no duration" : /[^0-9]/.test(form.duration) ? "invalid duration" : "",
       season: !form.season ? "no season" : "",
@@ -56,6 +56,7 @@ export default function Form() {
   }
 
   const createActivity = () => {
+
     dispatch(postActivity(form));
     alert("Activity Created!")
     setForm({
@@ -263,13 +264,6 @@ export default function Form() {
           Back
         </button>
         </div>
-        {errors.name === "empty name" && (<p className = {styled.error}>- Name can not be null -</p>)}
-        {errors.name === "invalid name" && (<p className = {styled.error}>- Invalid name -</p>)}
-        {errors.difficulty && (<p className = {styled.error}>- Difficulty can not be null -</p>)}
-        {errors.duration === "no duration" && (<p className = {styled.error}>- Duration can not be null -</p>)}
-        {errors.duration === "invalid duration" && (<p className = {styled.error}>- Invalid duration -</p>)}
-        {errors.season && (<p className = {styled.error}>- Season can not be null -</p>)}
-        {errors.idCountries && (<p className = {styled.error}>- Add at least one country -</p>)}
       </form>
     </div>
   );

@@ -11,14 +11,38 @@
     margin-inline: 1em;
     margin-top: 0.2em;
     margin-bottom: 0px;
-    font-size: 25px;
+    width: 2.5em;
+    height: 2.5em;
+    border: 1px solid black;
+}
+
+.pageButton{
+    background-color: rgb(241, 251, 255);
+    margin-inline: 0.4em;
+    width: 2.5em;
+    height: 2.5em;
+    margin-top: 1.8em;
+    border: 1px solid black;
+}
+
+.pageButtonSelected{
+    background-color: rgb(188, 217, 251);
+    margin-inline: 0.4em;
+    width: 2.5em;
+    height: 2.5em;
+    margin-top: 1.8em;
+    border: 2px solid black;
+    font-size: 1em;
+    font-weight: bold;
 }
 
 .buttonOff{
     margin-inline: 1em;
     margin-top: 0.2em;
     margin-bottom: 0px;
-    font-size: 25px;
+    width: 2.5em;
+    height: 2.5em;
+    border: 1px solid black;
 
 }
 
