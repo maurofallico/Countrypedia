@@ -25,6 +25,9 @@ export default function Landing(){
         <button className = {styled.button} onClick={() => enter()}>
           Click to Enter
         </button>
+        <div className={styled.footContainer}>
+        <p className = {styled.foot}><i>For a better experience, we recommend using a desktop device</i></p>
+        </div>
       </div>
     </div>
     )
